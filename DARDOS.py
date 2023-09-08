@@ -85,11 +85,9 @@ class DartGame:
             elif (x-200)**2 + (y-200)**2 <= (200)**2:
                 color = "#000000"
                 
-            dart_id=self.canvas.create_oval(x -5 , y -5 , x +5 , y +5 , fill=color, outline="")
+            dart_id=self.canvas.create_oval(x -5 , y -5 , x +5 , y +5 , fill="yellow", outline="")            
             
-            dart_text_id=self.canvas.create_text(x,y,text=f"({x},{y})",font=("Arial",8))
-            
-            self.darts.append((dart_id,dart_text_id))
+            self.darts.append((dart_id))
             
     def reset_game(self):
         
@@ -97,11 +95,9 @@ class DartGame:
         
         for dart in self.darts:
             
-            dart_id,dart_text_id=dart
+            dart_id=dart
             
             self.canvas.delete(dart_id)
-            
-            self.canvas.delete(dart_text_id)
             
         self.darts=[]
         
